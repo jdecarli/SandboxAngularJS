@@ -1,0 +1,26 @@
+<html ng-app="myApp">
+    <head>
+        <title>Scope</title>
+
+        <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+        <script type="text/javascript" src="01_scope.js"></script>
+
+    <!--<style src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></style>-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">        
+    </head>
+    <body>
+        <h1>Scope</h1>
+        <hr />
+
+        <div ng-controller="ParentController">
+
+            <input type="text" ng-model="model.name" />
+            <p>This is the parent: {{ model.name }}</p>
+
+            <div ng-controller="ChildController">
+                <input type="text" ng-model="model.name" />
+                <p>This is the child: {{ model.name }}</p>                
+            </div>
+        </div>
+    </body>
+</html>

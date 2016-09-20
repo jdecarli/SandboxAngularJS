@@ -1,0 +1,42 @@
+<html ng-app="myApp">
+
+<head>
+    <title>Filters</title>
+
+    <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="03_filters.js"></script>
+</head>
+<body>
+    <div ng-controller="MainController as main">
+        
+        <h1>Without Filters</h1>
+
+        <p>First Name: {{ main.user.firstName }} </p>
+        <p>Last Name: {{ main.user.lastName }} </p>
+        <p>Account Type: {{ main.user.accountType }} </p>
+        <p>Balance: {{ main.user.balance }} </p>
+
+        <h1>With Filters</h1>
+
+        <p>First Name: {{ main.user.firstName | uppercase }} </p>
+        <p>Last Name: {{ main.user.lastName | uppercase }} </p>
+        <p>Account Type: {{ main.user.accountType | lowercase }} </p>
+        <p>Balance: {{ main.user.balance | currency:'USD $':0 }} </p>
+
+        <h1>With Custom Filters</h1>
+
+        <p>First Name: {{ main.user.firstName + ' ' + main.user.lastName | capitalize }} </p>
+        <p>Last Name: {{ main.user.lastName | capitalize }} </p>
+        <p>Account Type: {{ main.user.accountType | capitalize }} </p>        
+
+        <h1>Number filter</h1>
+
+        <!--It will format as a number with 2 decimals-->
+        {{ 132123123.345435 | number:2 }}
+
+        <h1>Date Filter</h1>
+
+        {{ main.now | date:'short' }}
+    </div>        
+</body>
+</html>

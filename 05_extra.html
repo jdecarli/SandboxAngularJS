@@ -1,0 +1,36 @@
+<html ng-app="myApp">
+
+<head>
+    <title>Filters</title>
+
+    <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="05_extra.js"></script>
+
+    <style>
+        /*Angular validation generates those classes when passed */
+        input.ng-dirty.ng-valid {
+            background: #ddffdd;
+        }
+
+        input.ng-dirty.ng-invalid {
+            background: #ffdddd;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="MainController as main">
+        
+        <p><input type="text" ng-model="main.name"></p>        
+        <p>{{ main.name }}</p>
+        <p>{{ main.message }}</p>
+
+    </div>
+
+    <hr />
+
+    <div ng-controller="PromisesController as prom">
+        <h1>Promises</h1>
+        <p>{{ prom.firstName }} {{ prom.middleName }} {{ prom.lastName }}</p>
+    </div>
+</body>
+</html>

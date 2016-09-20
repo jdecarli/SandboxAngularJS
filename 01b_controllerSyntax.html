@@ -1,0 +1,33 @@
+<html ng-app="myApp">
+
+<head>
+    <title>Controller as a Syntax</title>
+
+    <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="01b_controllerSyntax.js"></script>
+
+    <!--<style src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></style>-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Controller as a Syntax</h1>
+    <hr />
+    
+    <div ng-controller="ParentController as parent">
+
+        <p>This is the parent: {{ parent.message }}</p>
+
+        <div ng-controller="FirstChild as first">
+            <p>This is the parent: {{ parent.message }}</p>
+            <p>This is the first child: {{ first.message }}</p>                
+        </div>
+
+        <div ng-controller="SecondChild as second">
+            <p>This is the parent: {{ parent.message }}</p>
+            <p>This is the second child: {{ second.message }}</p>
+            <br />
+            <p>Randomize: {{ second.value }}</p>                
+        </div>        
+    </div>        
+</body>
+</html>

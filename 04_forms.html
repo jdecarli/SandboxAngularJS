@@ -1,0 +1,66 @@
+<html ng-app="myApp">
+
+<head>
+    <title>Filters</title>
+
+    <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+    <script type="text/javascript" src="04_forms.js"></script>
+
+    <style>
+        /*Angular validation generates those classes when passed */
+        input.ng-dirty.ng-valid {
+            background: #ddffdd;
+        }
+
+        input.ng-dirty.ng-invalid {
+            background: #ffdddd;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="MainController as main">
+
+        <p>Name: {{ main.user.name }}</p>        
+        <p>Fruit: {{ main.user.favouriteFruit }}</p>
+        <p>Active: {{ main.user.isActive | yesorno }}</p>
+
+        <hr />
+
+        <p>Enter name:</p>
+        <p><input type="text" ng-model="main.user.name"></p>
+
+        <p>Fruit</p>
+        <p><select ng-model="main.user.favouriteFruit" ng-options="fruit for fruit in main.fruitList"></select></p>
+
+        <p>Active</p>
+        <p><input type="checkbox" ng-model="main.user.isActive">Is Active</p>
+        <p>
+            <input type="radio" ng-model="main.user.isActive" ng-value="true"> yes
+            <input type="radio" ng-model="main.user.isActive" ng-value="false"> no
+        </p>
+
+        <hr />
+    </div>
+
+    <div ng-controller="FormValidationController as formu">
+        <form name="userForm" novalidate>
+            <p>First Name:</p>
+            <p><input type="text" ng-model="formu.user.firstName" required></p>
+            <p>Last Name:</p>
+            <p><input type="text" ng-model="formu.user.lastName" required></p>            
+            <p>Phone: (10 digs)</p>
+            <p><input type="text" ng-model="formu.user.phone" required ng-minlength="10"></p>
+            <p>Email:</p>
+            <p><input type="email" ng-model="formu.user.email" required></p>
+            <p>Zip Code:</p>
+            <p><input type="text" ng-model="formu.user.zip" required></p>
+            <hr />
+            <p><button ng-click="formu.submitForm(userForm)">Submit</button></p>            
+        </form>
+
+        <p>
+            Result: {{ formu.user }}
+        </p>
+    </div>
+</body>
+</html>
