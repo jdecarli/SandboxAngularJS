@@ -1,0 +1,22 @@
+<html ng-app="myApp">
+    <head>
+        <title>Directives (High Level)</title>
+
+        <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+        <script type="text/javascript" src="08_Directives.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+    </head>
+    <body>
+        <div ng-controller="MainController as main">
+
+            <p>Attribute: <span my-directive></span></p>
+
+            <p>Class: <span class="my-directive"></span></p>
+
+            <!-- IE8 cannot render this one-->
+            <p>Element: <my-directive></my-directive></p>
+
+        </div>
+    </body>
+</html>

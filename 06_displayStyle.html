@@ -1,0 +1,71 @@
+<html ng-app="myApp">
+    <head>
+        <title>Styles</title>
+
+        <script type="text/javascript" src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+        <script type="text/javascript" src="06_displayStyle.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+        <style>
+            .redClass {
+                color:red;
+            }
+
+            .greenClass {
+                color:green;
+            }
+
+            .even {
+                background-color:#aaeeee;
+            }
+
+            .odd {
+                background-color:#cccccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-controller="MainController as main">
+
+            <h1>ngStyle</h1>
+            <hr />
+
+            <p ng-style="main.style1">This is the first style.</p>
+            <p ng-style="main.style2">This is the second style.</p>
+
+            <hr />
+
+            <p>
+                <button ng-click="main.enableStyles()">Enable Styles</button>
+                <button ng-click="main.disableStyles()">Disable Styles</button>
+            </p>
+
+            <h1>ngClass</h1>
+            <hr />
+
+            <p ng-class="main.class1">This is the first class.</p>
+            <p class="ng-class:main.class2">This is the second class.</p>
+
+            <hr />
+
+            <p ng-class="{'redClass':main.isSelected, 'greenClass':!main.isSelected}">Changes based on selection.</p>
+
+            <p>Is Selected? <input type="checkbox" ng-model="main.isSelected"></p>
+
+            <h1>ngClass Even/Odd</h1>
+            <hr />
+
+            <table>
+                <tr ng-repeat="item in main.foodList" ng-class-even="'even'" ng-class-odd="'odd'">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price | currency }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <h1>ngSrc and ngHref</h1>
+        <p>When using javascript objecs as links, use ng-src and hg-href opposed to src 
+            and href to avoid internal errors (we can see them in the console)</p>
+    </body>
+</html>
